@@ -10,12 +10,7 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['POST'])
 def make_predict():
-    lines = request.get_json(force=True) # was 'data'
-    # predict_request = [data['address'], data['city'], data['state'],
-    # data['zipcode'], data['bed'], data['bath'], data['SqFt'],
-    # data['SqFt']]
-    # predict_request = [np.array(predict_request)]
-    # y_hat = reg.predict(predict_request)
+    lines = request.get_json(force=True)
     address = lines['address']
     city = lines['city']
     state = lines['state']
@@ -25,11 +20,9 @@ def make_predict():
     SqFt = lines['SqFt']
     year = lines['year'] 
     
-    test_case = np.array([[bath, bed, SqFt, year, zipcode]])
-    reg.predict(test_case)
-    prediction = reg.predict(test_case)
+    input = np.array([[bath, bed, SqFt, year, zipcode]])
+    prediction = reg.predict(input)
     output = list(prediction[0])[0]
-    #return jsonify(results=address)
     
     zillow_data = ZillowWrapper(API_KEY_HERE)
     deep_search_response = zillow_data.get_deep_search_results(address,zipcode)
