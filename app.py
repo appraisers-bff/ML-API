@@ -31,7 +31,7 @@ def make_predict():
     output = list(prediction[0])[0]
     #return jsonify(results=address)
     
-    zillow_data = ZillowWrapper('X1-ZWz1gyajrkda8b_76gmj')
+    zillow_data = ZillowWrapper(API_KEY_HERE)
     deep_search_response = zillow_data.get_deep_search_results(address,zipcode)
     result = GetDeepSearchResults(deep_search_response)
     output2 = result.zestimate_amount
