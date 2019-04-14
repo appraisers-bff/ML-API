@@ -4,5 +4,5 @@ Appraiser's BFF is a web app designed to provide local fair market value estimat
 
 Inital data exploration, data cleaning, and model training were completed in a Jupyter notebook. The model was then pickled so that it could be deployed with the Flask app. The Flask app reads in JSON data, coverts it to a numpy array, and then feeds it to the model to generate a prediction, which is then return as JSON. It also makes a request to the Zillow API so that results can be compared.
 
-## Demonstration video
+## Demo video
 https://www.youtube.com/watch?v=wup1IUjhlKI
