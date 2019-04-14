@@ -9,9 +9,9 @@ model = pickle.load(open('reg_model.pkl','rb'))
 
 app = Flask(__name__)
 
-@app.route('/api', methods=['POST'])
-# read in data 
+@app.route('/api', methods=['POST']) 
 def make_predict():
+    # read in data
     lines = request.get_json(force=True)
     address = lines['address']
     city = lines['city']
